@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Imatge from "./Imatge";
+import { useState } from "react";
 
 function App() {
+  const [imatgeGran, setImatgeGran] = useState(null);
+  let imatges = [
+    "https://picsum.photos/200",
+    "https://picsum.photos/300",
+    "https://picsum.photos/400",
+    "https://picsum.photos/500",
+    "https://picsum.photos/600",
+    "https://picsum.photos/700",
+    "https://picsum.photos/200",
+    "https://picsum.photos/300",
+    "https://picsum.photos/400",
+  ];
+  const veureFotoGran = (pos) => {
+    setImatgeGran(pos === imatgeGran ? null : pos);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {imatges.map((p, i) => (
+        <Imatge
+          key={i}
+          src={p}
+          funcio={veureFotoGran}
+          posicio={i}
+          classe={i === imatgeGran ? "imatge-gran" : ""}
+        />
+      ))}
     </div>
   );
 }
