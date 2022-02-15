@@ -2,22 +2,56 @@ body {
   margin: 0;
   padding: 0;
 }
-.App {
+h2 {
+  text-align: center;
+}
+.clearfix {
+  clear: both;
+}
+.wrapper-galeria {
+  max-width: 600px;
+  margin: auto;
   position: relative;
   text-align: center;
   background-color: aqua;
 }
-.App img {
-  width: 200px;
-  height: 200px;
+.wrapper-galeria img {
+  width: 33.3%;
+  height: auto;
   padding: 0;
   margin: 0;
   float: left;
 }
-.App .imatge-gran {
+.wrapper-galeria .imatge-gran {
   width: 100%;
   height: auto;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* Comptador */
+.comptador-wrapper {
+  width: 300px;
+  margin: auto;
+}
+.comptador-wrapper .display {
+  background-color: #282c34;
+  color: antiquewhite;
+  box-sizing: border-box;
+  height: 100px;
+  padding: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+.comptador-wrapper .container-btns {
+  display: flex;
+  height: 80px;
+}
+.comptador-wrapper .container-btns button {
+  width: 50%;
+}
+.comptador-wrapper button {
+  height: 80px;
+  width: 100%;
 }
