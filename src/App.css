@@ -126,3 +126,75 @@ h2 {
 .navegar-carrusel.endavant {
   border-radius: 0px 10px 10px 0px;
 }
+/*Tres en ratlla*/
+.wrapper-tres-en-ratlla {
+  max-width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
+.wrapper-tres-en-ratlla .btn-tauler {
+  width: 33.3%;
+  height: 100px;
+  float: left;
+}
+.btn-reset {
+}
+.btn-reset-hidden {
+  display: none;
+}
+
+/*Rellotge digital*/
+.hidden {
+  display: none;
+}
+.wrapper-rellotge-digital {
+  position: relative;
+  height: 150px;
+  text-align: center;
+}
+.wrapper-rellotge-digital label {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Rellotge analògic*/
+
+.rellotge-analogic {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+#agulla-segons {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  width: 2px;
+  height: 100px;
+  background-color: red;
+  transform-origin: bottom center;
+}
+#agulla-minuts {
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  width: 2px;
+  height: 90px;
+  background-color: blue;
+  transform-origin: bottom center;
+}
+#agulla-hores {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 2px;
+  height: 50px;
+  background-color: green;
+  transform-origin: bottom center;
+}
