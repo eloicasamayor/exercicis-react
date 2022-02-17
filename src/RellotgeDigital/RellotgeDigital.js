@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function RellotgeDigital() {
   const [data, setData] = useState(new Date());
@@ -10,8 +10,10 @@ export default function RellotgeDigital() {
   const toggleVeureData = () => {
     setVeureData((n) => !n);
   };
+  useEffect(() => {
+    setInterval(actualitzarData, 1000);
+  }, []);
 
-  setInterval(actualitzarData, 1000);
   return (
     <div className="wrapper-rellotge-digital">
       <h2>Rellotge Digital</h2>

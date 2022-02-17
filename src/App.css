@@ -198,3 +198,63 @@ h2 {
   background-color: green;
   transform-origin: bottom center;
 }
+.num-hora {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+#hora-3 {
+  right: 0;
+  top: 90px;
+}
+#hora-6 {
+  bottom: 0;
+  left: 90px;
+}
+#hora-9 {
+  bottom: 90px;
+  left: 0px;
+}
+#hora-12 {
+  left: 90px;
+  top: 0px;
+}
+
+/* Sumador de numeros */
+.sumador-numeros-wrapper {
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+.sumador-numeros-wrapper label {
+  display: inline-block;
+  width: 20%;
+}
+.sumador-numeros-wrapper input {
+  box-sizing: border-box;
+  width: 80%;
+}
+.sumador-numeros-wrapper div {
+  height: 40px;
+}
+.sumador-numeros-wrapper button {
+  height: 50px;
+}
+
+/* Tip Calculator*/
+
+.wrapper-tip-calculator {
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+}
+.wrapper-tip-calculator label {
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+.wrapper-tip-calculator input[type="number"] {
+  width: 50px;
+  box-sizing: border-box;
+}

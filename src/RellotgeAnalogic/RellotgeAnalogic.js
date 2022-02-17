@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 export default function RellotgeAnalogic() {
   const [data, setData] = useState(new Date());
   const actualitzarData = () => {
     setData(new Date());
   };
-  setInterval(actualitzarData, 1000);
+  useEffect(() => {
+    setInterval(actualitzarData, 1000);
+  }, []);
 
   return (
     <div>
@@ -34,9 +36,18 @@ export default function RellotgeAnalogic() {
             }deg)`,
           }}
         ></div>
-        <p>{parseInt(data.toISOString().slice(17, 19))}</p>
-        <p>{parseInt(data.toISOString().slice(14, 16))}</p>
-        <p>{24 - parseInt(data.toISOString().slice(11, 13))}</p>
+        <div className="num-hora" id="hora-3">
+          3
+        </div>
+        <div className="num-hora" id="hora-6">
+          6
+        </div>
+        <div className="num-hora" id="hora-9">
+          9
+        </div>
+        <div className="num-hora" id="hora-12">
+          12
+        </div>
       </div>
     </div>
   );
