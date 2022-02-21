@@ -1,73 +1,105 @@
 import { useState } from "react";
 export default function TipCalculator() {
-  const [preuPerComensal, setResultat] = useState(0);
   const [percentatgePropina, setPercentatgePropina] = useState(0);
-  const [propina, setPropina] = useState(0);
   const [preu, setPreu] = useState(0);
+  const [arrodonit, setArrodonit] = useState(false);
   const [numComensals, setNumComensals] = useState(1);
-  const [preuAmbPropina, setPreuAmbPropina] = useState(0);
-
-  const calcular = () => {
-    setPropina((preu * percentatgePropina) / 100);
-    setPreuAmbPropina(() => parseInt(preu) + parseInt(propina));
-    //setResultat(() => parseInt(preu) + parseInt(propina));
-  };
 
   const evaluarPercentatgePropina = (p) => {
     setPercentatgePropina(p < 100 ? p : 0);
-    console.log("hola");
-    setPreuAmbPropina(() => parseInt(preu) + parseInt(propina));
   };
 
   return (
     <div className="wrapper-tip-calculator">
       <h3>Tip Calculator</h3>
       <form>
-        <label>
-          <span>Preu:</span>
+        <div>
+          <label htmlFor="preu">Preu (€)</label>
           <input
+            id="preu"
             type="number"
             value={preu}
             onChange={(event) => setPreu(event.target.value)}
           />
-          €
-        </label>
-        <label>
-          <span>Propina:</span>
+        </div>
+        <div>
+          <label htmlFor="percentatge-propina">Propina (%)</label>
           <input
+            htmlFor="percentatge-propina"
             type="number"
             max="100"
             value={percentatgePropina}
             onChange={(event) => evaluarPercentatgePropina(event.target.value)}
           />
-          % (= {propina}€)
-        </label>
-        <label>
-          <span>Preu amb propina:</span>
-          <input type="number" value={preuAmbPropina} readOnly />
-        </label>
+        </div>
+        <div>
+          <label id="number">Propina (€)</label>
+          <input
+            type="number"
+            readOnly
+            value={(preu * percentatgePropina) / 100}
+          ></input>
+        </div>
 
-        <label>
-          Arrodonir <input type="checkbox" />
-        </label>
+        <div>
+          <label id="preu-amb-propina">Preu amb propina</label>
+          <input
+            id="preu-amb-propina"
+            type="number"
+            value={parseFloat(preu) + (preu * percentatgePropina) / 100}
+            readOnly
+          />
+        </div>
+        <div>
+          <label htmlFor="checkbox-arrodonir">Arrodonir (cap amunt)</label>
+          <input
+            id="checkbox-arrodonir"
+            type="checkbox"
+            checked={arrodonit}
+            onChange={() => setArrodonit((n) => !n)}
+          />
+        </div>
 
-        <p></p>
-        <label>
-          Comensals
+        {arrodonit && (
+          <div>
+            <span id="span-preu-arrodonit">
+              <label>Preu amb propina arrodonit</label>
+              <input
+                type="number"
+                value={Math.ceil(
+                  parseFloat(preu) + (preu * percentatgePropina) / 100
+                )}
+                readOnly
+              />
+            </span>
+          </div>
+        )}
+        <div>
+          <label>Comensals</label>
           <input
             type="number"
             value={numComensals}
             onChange={(event) => setNumComensals(event.target.value)}
           />
-        </label>
+        </div>
 
-        <hr />
-        <button type="button" onClick={calcular}>
-          Calcular
-        </button>
-        <p></p>
-        <label>A cadascú li toca pagar:</label>
-        <input type="number" value={preuPerComensal} readOnly />
+        <div>
+          <label>Cadascú pagarà</label>
+          <input
+            type="number"
+            step="0.01"
+            value={
+              arrodonit
+                ? Math.ceil(
+                    parseFloat(preu) +
+                      parseFloat((preu * percentatgePropina) / 100)
+                  ) / numComensals
+                : parseFloat(preu) +
+                  parseFloat((preu * percentatgePropina) / 100) / numComensals
+            }
+            readOnly
+          />
+        </div>
       </form>
     </div>
   );

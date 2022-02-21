@@ -1,28 +1,21 @@
 import "./App.css";
-import GaleriaFotos from "./GaleriaFotos/GaleriaFotos";
-import Comptador from "./Comptador/Comptador";
-import Acordio from "./Acordio/Acordio";
-import Carrusel from "./Carrusel/Carrusel";
-import TresEnRatlla from "./TresEnRatlla/TresEnRatlla";
-import RellotgeDigital from "./RellotgeDigital/RellotgeDigital";
-import RellotgeAnalogic from "./RellotgeAnalogic/RellotgeAnalogic";
-import SumadorDeNumeros from "./SumadorDeNumeros/SumadorDeNumeros";
-import TipCalculator from "./TipCalculator/TipCalculator";
+import llistaExercicis from "./LlistaExercicis";
+import Home from "./Home";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
 
 function App() {
   return (
-    <div className="App">
-      <GaleriaFotos />
-      <Comptador />
-      <Acordio />
-      <Carrusel />
-      <TresEnRatlla />
-      <RellotgeDigital />
-      <RellotgeAnalogic />
-      <SumadorDeNumeros />
-      <TipCalculator />
-      <hr />
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          {llistaExercicis.map((item, i) => (
+            <Route path={item.path} element={item.exercici} key={i} />
+          ))}
+        </Route>
+      </Routes>
+    </HashRouter>
   );
 }
 
