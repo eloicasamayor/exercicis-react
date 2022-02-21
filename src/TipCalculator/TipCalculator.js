@@ -11,7 +11,7 @@ export default function TipCalculator() {
 
   return (
     <div className="wrapper-tip-calculator">
-      <h3>Tip Calculator</h3>
+      <h2>Tip Calculator</h2>
       <form>
         <div>
           <label htmlFor="preu">Preu (€)</label>
