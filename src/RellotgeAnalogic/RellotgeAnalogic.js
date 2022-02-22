@@ -32,10 +32,15 @@ export default function RellotgeAnalogic() {
           id="agulla-hores"
           style={{
             transform: `rotate(${
-              24 - parseInt(data.toISOString().slice(11, 13)) * 6
+              (360 *
+                (parseInt(data.toString().slice(16, 18)) > 12
+                  ? parseInt(data.toString().slice(16, 18)) - 12
+                  : parseInt(data.toString().slice(16, 18)))) /
+              12
             }deg)`,
           }}
         ></div>
+
         <div className="num-hora" id="hora-3">
           3
         </div>
