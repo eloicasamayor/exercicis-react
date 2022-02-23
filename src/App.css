@@ -355,6 +355,35 @@ nav ul li a:hover {
 .groupbutton-wraper .btn-no-seleccionat {
   background-color: #aaa;
 }
+.input-array1 {
+  width: 50px;
+}
+.div-inputs-array1 {
+  width: 50px;
+  margin: 15px auto 0 auto;
+}
+.arrays1-flex .col2 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+.arrays1-wrapper {
+  text-align: center;
+}
+.arrays1-flex {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.arrays1-wrapper .resultat-calcul {
+  display: inline-block;
+  padding: 0.5em;
+  background-color: aquamarine;
+}
+.arrays2-wrapper {
+  padding: 10px;
+}
 @media (max-width: 600px) {
   nav ul {
     flex-direction: column;

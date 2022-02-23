@@ -10,6 +10,7 @@ import ToggleButton from "./ToggleButton/ToggleButton";
 import GroupButton from "./GroupButton/GroupButton";
 import TresEnRatlla from "./TresEnRatlla/TresEnRatlla";
 import Arrays1 from "./ExercicisArrays/Arrays1";
+import Arrays2 from "./ExercicisArrays/Arrays2";
 
 const llistaExercicis = [
   { exercici: <ToggleButton />, titol: "Toggle Button", path: "togglebutton" },
@@ -51,6 +52,11 @@ const llistaExercicis = [
     exercici: <Arrays1 />,
     titol: "Arrays 1",
     path: "arrays-1",
+  },
+  {
+    exercici: <Arrays2 />,
+    titol: "Arrays 2",
+    path: "arrays-2",
   },
 ];
 
