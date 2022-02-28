@@ -1,30 +1,31 @@
 import Display from "./Display";
-import Boto from "./Boto";
-import { useState } from "react";
+import { counter, increment, reset, toggleLimitador } from "./counter";
+
+import { useReducer } from "react";
 
 export default function Comptador() {
-  const [valor, setValor] = useState(0);
-  const sumar = (quantitat) => {
-    if (quantitat == null) quantitat = 1;
-    setValor((n) => {
-      return 10 >= n + quantitat ? n + quantitat : n;
-    });
-  };
-  const restar = () => {
-    setValor((n) => (n === 0 ? n : n - 1));
-  };
+  const [state, dispatch] = useReducer(counter, { valor: 0, limitador: false });
+
   return (
     <div className="comptador-wrapper">
       <div className="clearfix"></div>
       <h2>Comptador</h2>
-      <Display valor={valor} />
+      <Display valor={state.valor} />
       <div className="container-btns">
-        <Boto funcio={restar} text="-" />
+        <button onClick={() => dispatch(increment(-1))}>-</button>
 
-        <Boto funcio={sumar} text="+" />
+        <button onClick={() => dispatch(increment(+1))}>+</button>
       </div>
-
-      <Boto funcio={sumar} quantitat={5} text="+5" />
+      <div className="container-btns">
+        <button onClick={() => dispatch(increment(+5))}>+5</button>
+        <button onClick={() => dispatch(reset())}>reset</button>
+      </div>
+      <input
+        type="checkbox"
+        onChange={() => dispatch(toggleLimitador())}
+        value={state.limitador}
+      />
+      <label>Limitar comptador (0, 10)</label>
     </div>
   );
 }
